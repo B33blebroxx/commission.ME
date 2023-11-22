@@ -1,5 +1,6 @@
 import { Button, Card, ListGroup } from 'react-bootstrap';
 import PropTypes from 'prop-types';
+import Link from 'next/link';
 import { deleteProfile } from '../../api/profileData';
 import { useAuth } from '../../utils/context/authContext';
 
@@ -27,7 +28,7 @@ export default function ProfileCard({ profileObj, onUpdate }) {
         </ListGroup>
         <Card.Body>
           {isCurrentUserProfile && (<Button variant="danger" onClick={deleteProfilePrompt}> Delete Profile </Button>)}
-          <Card.Link href="#">Another Link</Card.Link>
+          <Link href={`/profile/${profileObj.firebaseKey}`} passHref><Button variant="info">View Profile</Button></Link>
         </Card.Body>
       </Card>
     </div>
