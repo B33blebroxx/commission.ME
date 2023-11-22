@@ -1,9 +1,9 @@
-import clientCredentials from '../utils/client';
+import { clientCredentials } from '../utils/client';
 
 const endpoint = clientCredentials.databaseURL;
 
-const getAllProfiles = (uid) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/profiles.json?orderBy="uid"&equalTo="${uid}"`, {
+const getAllProfiles = () => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/profiles.json`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
