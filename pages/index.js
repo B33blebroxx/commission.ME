@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-html-link-for-pages */
 import { useAuth } from '../utils/context/authContext';
 
 function Home() {
@@ -14,7 +15,8 @@ function Home() {
       }}
     >
       <h1>Hello {user.displayName}! </h1>
-      <p>Please select a link from above!</p>
+      <p>Click <a href="/profile/new"><u>here</u></a> if this is your first visit!</p>
+      <p>Otherwise click a link above!</p>
     </div>
   );
 }
