@@ -48,7 +48,7 @@ export default function ViewProfile() {
               <Button variant="info">Contact Me For Commissions</Button>
             </a>
           </ul>
-          <ul> {isCurrentUserProfile && (<Button variant="danger" onClick={deleteProfilePrompt}> Delete Profile </Button>)} {isCurrentUserProfile && (<a href={`/profile/update/${profileDetails.firebaseKey}`}><Button variant="info"> Edit Profile </Button></a>)}</ul>
+          <ul> {isCurrentUserProfile && (<><Button variant="danger" onClick={deleteProfilePrompt}> Delete Profile </Button> <a href={`/profile/update-profile/${profileDetails.firebaseKey}`}><Button variant="info"> Edit Profile </Button></a></>)} </ul>
           <br />
         </div>
       </div>
@@ -60,8 +60,8 @@ export default function ViewProfile() {
           height: '2px',
         }}
       />
-      <div id="posts">
-        placeholder text
+      <div id="post-container">
+        Posts will go here.
       </div>
     </div>
   );

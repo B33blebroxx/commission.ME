@@ -15,8 +15,8 @@ export default function ProfileCard({ profileObj, onUpdate }) {
   const isCurrentUserProfile = user.uid === profileObj.uid;
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'center' }} id="profile-card-div">
-      <Card id="profile-card" style={{ width: '18rem' }}>
+    <div id="profile-card-div">
+      <Card id="profile-card">
         <Card.Img id="profile-card-img" variant="top" src={profileObj.image} />
         <Card.Body>
           <Card.Title>{profileObj.name}</Card.Title>
