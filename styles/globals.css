@@ -20,3 +20,16 @@ a {
 body {
   background-color: #88effd;
 }
+
+#profile-card-div {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-flow: row;
+  padding: 2rem;
+  max-width: fit-content;
+}
+
+#profile-card {
+  width: 19rem;
+}
