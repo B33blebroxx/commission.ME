@@ -4,9 +4,12 @@ import { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { deleteProfile, getAllProfiles, getSingleProfile } from '../../api/profileData';
 import { useAuth } from '../../utils/context/authContext';
+import { getAllPosts } from '../../api/postData';
+import PostCard from '../../components/cards/PostCard';
 
 export default function ViewProfile() {
   const [profileDetails, setProfileDetails] = useState({});
+  const [posts, setPosts] = useState([]);
   const router = useRouter();
   const { firebaseKey } = router.query;
   const { user } = useAuth();
@@ -14,10 +17,17 @@ export default function ViewProfile() {
   const getProfile = () => {
     getSingleProfile(firebaseKey).then(setProfileDetails);
   };
+  const getPosts = () => {
+    getAllPosts(user.uid).then(setPosts);
+  };
 
   useEffect(() => {
     getProfile();
-  }, [getProfile]);
+  }, []);
+
+  useEffect(() => {
+    getPosts();
+  }, []);
 
   const deleteProfilePrompt = () => {
     if (window.confirm('Delete Your Profile?')) {
@@ -61,7 +71,9 @@ export default function ViewProfile() {
         }}
       />
       <div id="post-container">
-        Posts will go here.
+        {posts.map((post) => (
+          <PostCard key={post.firebaseKey} postObj={post} onUpdate={getPosts} />
+        ))}
       </div>
     </div>
   );
