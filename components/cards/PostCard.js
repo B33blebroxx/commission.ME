@@ -21,6 +21,7 @@ export default function PostCard({ postObj }) {
           <ListGroup>
             {isCurrentUserProfile && (<><Button variant="danger" onClick={deletePostPrompt}>Delete Post</Button><a href={`/post/update/${postObj.firebaseKey}`}><Button variant="info"> Edit Profile </Button></a></>)}
           </ListGroup>
+          {isCurrentUserProfile && postObj.public === false && (<ListGroup>Private Post</ListGroup>)}
         </Card.Body>
       </Card>
     </div>
@@ -33,5 +34,6 @@ PostCard.propTypes = {
     postImg: PropTypes.string,
     title: PropTypes.string,
     uid: PropTypes.string,
+    public: PropTypes.bool,
   }).isRequired,
 };

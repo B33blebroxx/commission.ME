@@ -18,7 +18,10 @@ export default function ViewProfile() {
     getSingleProfile(firebaseKey).then(setProfileDetails);
   };
   const getPosts = () => {
-    getAllPosts(user.uid).then(setPosts);
+    getAllPosts().then((allPosts) => {
+      const profilePosts = Object.values(allPosts).filter((post) => post.profileId === firebaseKey && (isCurrentUserProfile || post.public === true));
+      setPosts(profilePosts);
+    });
   };
 
   useEffect(() => {
