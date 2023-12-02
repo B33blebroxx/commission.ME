@@ -2,8 +2,8 @@ import { clientCredentials } from '../utils/client';
 
 const endpoint = clientCredentials.databaseURL;
 
-const getAllPosts = () => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/posts.json`, {
+const getAllPostsByProfile = (firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/posts.json?orderBy="profileId"&equalTo="${firebaseKey}"`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -16,6 +16,21 @@ const getAllPosts = () => new Promise((resolve, reject) => {
       } else {
         resolve([]);
       }
+    })
+    .catch(reject);
+});
+
+const getPublicPostsByProfile = (firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/posts.json?orderBy="profileId"&equalTo="${firebaseKey}"`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      const filteredPosts = Object.values(data).filter((post) => post.private === false);
+      resolve(filteredPosts);
     })
     .catch(reject);
 });
@@ -68,5 +83,5 @@ const updatePost = (payload) => new Promise((resolve, reject) => {
 });
 
 export {
-  getAllPosts, getSinglePost, updatePost, deletePost, createPost,
+  getAllPostsByProfile, getSinglePost, updatePost, deletePost, createPost, getPublicPostsByProfile,
 };
