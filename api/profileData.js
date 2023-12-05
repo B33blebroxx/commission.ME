@@ -2,8 +2,8 @@ import { clientCredentials } from '../utils/client';
 
 const endpoint = clientCredentials.databaseURL;
 
-const getAllProfiles = () => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/profiles.json`, {
+const getAllProfiles = (uid) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/profiles.json?orderBy="uid"&equalTo"${uid}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -20,7 +20,7 @@ const getAllProfiles = () => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-const getSingleProfile = (firebaseKey) => new Promise((resolve, reject) => {
+const getProfileDetails = (firebaseKey) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/profiles/${firebaseKey}.json`, {
     method: 'GET',
     headers: {
@@ -68,5 +68,5 @@ const updateProfile = (payload) => new Promise((resolve, reject) => {
 });
 
 export {
-  getAllProfiles, getSingleProfile, createProfile, updateProfile, deleteProfile,
+  getAllProfiles, getProfileDetails, createProfile, updateProfile, deleteProfile,
 };

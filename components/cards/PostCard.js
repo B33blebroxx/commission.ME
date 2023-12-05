@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import { useAuth } from '../../utils/context/authContext';
 import { deletePost } from '../../api/postData';
 
-// ... (imports)
-
 export default function PostCard({ postObj, onUpdate }) {
   const deletePostPrompt = () => {
     if (window.confirm('Are you sure you want to delete this post?')) {
@@ -13,7 +11,6 @@ export default function PostCard({ postObj, onUpdate }) {
   };
   const { user } = useAuth();
   const isCurrentUserProfile = user.uid === postObj.uid;
-  console.warn(isCurrentUserProfile);
 
   return (
     <div id="post-card-container">
@@ -27,7 +24,7 @@ export default function PostCard({ postObj, onUpdate }) {
                 <Button variant="danger" onClick={deletePostPrompt}>
                   Delete Post
                 </Button>
-                <a href={`/post/update/${postObj.firebaseKey}`}>
+                <a href={`/posts/update-post/${postObj.firebaseKey}`}>
                   <Button variant="info"> Edit Post </Button>
                 </a>
               </>

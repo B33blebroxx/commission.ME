@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { getSingleProfile } from '../../../api/profileData';
+import { getProfileDetails } from '../../../api/profileData';
 import CreateProfileForm from '../../../components/forms/CreateProfileForm';
 
 export default function EditProfile() {
@@ -9,7 +9,7 @@ export default function EditProfile() {
   const { firebaseKey } = router.query;
 
   useEffect(() => {
-    getSingleProfile(firebaseKey).then(setEditProfile);
+    getProfileDetails(firebaseKey).then(setEditProfile);
   }, [firebaseKey]);
 
   return (<CreateProfileForm obj={editProfile} />);
