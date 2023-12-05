@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { Button, FloatingLabel, Form } from 'react-bootstrap';
 import { useAuth } from '../../utils/context/authContext';
 import { createPost, updatePost } from '../../api/postData';
-import { getSingleProfile } from '../../api/profileData';
+import { getProfileDetails } from '../../api/profileData';
 
 const initialState = {
   title: '',
@@ -12,17 +12,21 @@ const initialState = {
   private: false,
 };
 
-export default function CreatePostForm({ obj }) {
+export default function CreatePostForm({ postObj }) {
   const [formInput, setFormInput] = useState(initialState);
   const [profileDetails, setProfileDetails] = useState({});
   const router = useRouter();
+  const { profileId } = router.query;
   const { user } = useAuth();
 
+  const getProfile = () => {
+    getProfileDetails(profileId).then(setProfileDetails);
+  };
+  console.warn(profileDetails);
   useEffect(() => {
-    if (obj.firebaseKey) setFormInput(obj);
-    getSingleProfile(obj.firebaseKey).then(setProfileDetails);
-    console.warn(profileDetails);
-  }, [obj, user]);
+    if (postObj.firebaseKey) setFormInput(postObj);
+    getProfile();
+  }, [postObj, user]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -34,18 +38,19 @@ export default function CreatePostForm({ obj }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const payload = {
-      ...formInput,
-      uid: user.uid,
-      profileId: obj.firebaseKey,
-    };
-    if (obj.firebaseKey) {
-      updatePost(formInput).then(() => router.push(`/profile/${obj.firebaseKey}`));
+
+    if (postObj.firebaseKey) {
+      updatePost(formInput).then(() => router.push(`/profile/${profileDetails.firebaseKey}`));
     } else {
+      const payload = {
+        ...formInput,
+        uid: user.uid,
+        profileId: profileDetails.firebaseKey,
+      };
       createPost(payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
         updatePost(patchPayload).then(() => {
-          router.push(`/profile/${obj.firebaseKey}`);
+          router.push(`/profile/${profileDetails.firebaseKey}`);
         });
       });
     }
@@ -54,7 +59,7 @@ export default function CreatePostForm({ obj }) {
   return (
     <Form onSubmit={handleSubmit}>
       <h2 className="text-white mt-5">
-        {obj.firebaseKey ? 'Update' : 'Create'} Post
+        {postObj.firebaseKey ? 'Update' : 'Create'} Post
       </h2>
       <FloatingLabel
         controlId="floatingInput1"
@@ -99,14 +104,14 @@ export default function CreatePostForm({ obj }) {
         }}
       />
       <Button type="submit">
-        {obj.firebaseKey ? 'Update' : 'Create'} Post
+        {postObj.firebaseKey ? 'Update' : 'Create'} Post
       </Button>
     </Form>
   );
 }
 
 CreatePostForm.propTypes = {
-  obj: PropTypes.shape({
+  postObj: PropTypes.shape({
     title: PropTypes.string,
     postImg: PropTypes.string,
     sale: PropTypes.bool,
@@ -116,5 +121,5 @@ CreatePostForm.propTypes = {
 };
 
 CreatePostForm.defaultProps = {
-  obj: initialState,
+  postObj: initialState,
 };

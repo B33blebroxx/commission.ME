@@ -3,10 +3,12 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import Link from 'next/link';
-import { deleteProfile, getAllProfiles, getSingleProfile } from '../../api/profileData';
+// import { getAllProfiles } from '../../api/profileData';
 import { useAuth } from '../../utils/context/authContext';
 import { getAllPostsByProfile, getPublicPostsByProfile } from '../../api/postData';
 import PostCard from '../../components/cards/PostCard';
+import deleteProfileAndPosts from '../../api/mergedData';
+import { getProfileDetails } from '../../api/profileData';
 
 export default function ViewProfile() {
   const [profileDetails, setProfileDetails] = useState({});
@@ -14,9 +16,9 @@ export default function ViewProfile() {
   const router = useRouter();
   const { firebaseKey } = router.query;
   const { user } = useAuth();
-  const isCurrentUserProfile = user?.uid === profileDetails.uid;
+  const isCurrentUserProfile = user.uid === profileDetails.uid;
   const getProfile = () => {
-    getSingleProfile(firebaseKey).then(setProfileDetails);
+    getProfileDetails(firebaseKey).then(setProfileDetails);
   };
   const getPosts = () => {
     if (isCurrentUserProfile) {
@@ -29,11 +31,11 @@ export default function ViewProfile() {
   useEffect(() => {
     getProfile();
     getPosts();
-  }, [profileDetails.uid, profileDetails.uid]);
+  }, [firebaseKey, profileDetails.uid]);
 
   const deleteProfilePrompt = () => {
     if (window.confirm('Delete Your Profile?')) {
-      deleteProfile(profileDetails.firebaseKey).then(getAllProfiles);
+      deleteProfileAndPosts(profileDetails.firebaseKey).then(router.push('/profile/profiles'));
     }
   };
 
@@ -62,7 +64,7 @@ export default function ViewProfile() {
               </a>
             </ul>
             <ul>
-              <Button variant="danger" onClick={deleteProfilePrompt}> Delete Profile </Button> <a href={`/profile/update-profile/${profileDetails.firebaseKey}`}><Button variant="info"> Edit Profile </Button></a>
+              <Button variant="danger" onClick={deleteProfilePrompt}> Delete Profile </Button> <a href={`/profile/update-profile/${firebaseKey}`}><Button variant="info"> Edit Profile </Button></a>
             </ul>
             <br />
           </div>
@@ -76,7 +78,7 @@ export default function ViewProfile() {
           }}
         />
         <div id="post-container">
-          <Link passHref a href="/posts/new"><Button variant="primary">Create Post</Button></Link>
+          <Link passHref a href={`/posts/new/${firebaseKey}`}><Button variant="primary">Create Post</Button></Link>
           {posts.map((post) => (
             <PostCard key={post.firebaseKey} postObj={post} onUpdate={getPosts} />
           ))}
