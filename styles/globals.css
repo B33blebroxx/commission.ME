@@ -1,11 +1,13 @@
 @import 'bootstrap/dist/css/bootstrap.css';
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
 
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'Shadows Into Light', cursive;
+  font-weight: bold;
+  font-size: 18px;
 }
 
 a {
@@ -18,7 +20,9 @@ a {
 }
 
 body {
-  background-color: #88effd;
+  background-image: url('../images/abstract-background.jpg');
+  background-attachment: fixed;
+  background-size: contain;
 }
 
 #profile-card-div {
@@ -31,5 +35,60 @@ body {
 }
 
 #profile-card {
-  width: 19rem;
+  width: 22rem;
+  background: rgba( 255, 255, 255, 0.15 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 2.5px );
+  -webkit-backdrop-filter: blur( 2.5px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  -webkit-box-shadow: 12px 12px 46px #b2b8c9, -12px -12px 46px #f0f8ff;
+box-shadow: 12px 12px 46px #b2b8c9, -12px -12px 46px #f0f8ff;
+}
+
+#profile-card-img {
+  height: 30rem;
+}
+
+.profile-card-list-group {
+  background: rgba( 255, 255, 255, 0.15 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 3.5px );
+  -webkit-backdrop-filter: blur( 3.5px );
+  border-radius: 10px;
+  border: 1px solid rgb(7, 7, 7);
+  width: auto;
+}
+
+#pc-card-title {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+#profile-card {
+  background: rgba( 255, 255, 255, 0.15 );
+  box-shadow: 0 8px 32px 0 rgba(1, 2, 9, 0.779);
+  backdrop-filter: blur( 2.5px );
+  -webkit-backdrop-filter: blur( 2.5px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+#post-card {
+  background: rgba( 255, 255, 255, 0.15 );
+  box-shadow: 0 8px 32px 0 rgba(1, 2, 9, 0.779);
+  backdrop-filter: blur( 2.5px );
+  -webkit-backdrop-filter: blur( 2.5px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+#profile-pg-header {
+  font-size: 70px;
+}
+
+ul {
+  color: black;
+  font-weight: bold;
+  font-size: 23px;
 }

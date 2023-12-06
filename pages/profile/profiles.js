@@ -15,7 +15,7 @@ export default function ShowProfiles() {
 
   return (
     <div className="text-center my-auto">
-      <h1 id="profile-pg-header">Artist Profiles</h1>
+      <br /><h1 id="profile-pg-header">Artist Profiles</h1>
       <div className="d-flex flex-wrap">
         {profiles.map((profile) => (
           <ProfileCard key={profile.firebaseKey} profileObj={profile} onUpdate={getAllTheProfiles} />

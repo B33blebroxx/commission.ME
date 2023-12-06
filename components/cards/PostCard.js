@@ -22,11 +22,11 @@ export default function PostCard({ postObj, onUpdate }) {
         <Card.Body>
           {isCurrentUserProfile && (
             <>
-              <Button variant="danger" onClick={deletePostPrompt}>
+              <Button variant="dark" onClick={deletePostPrompt}>
                 Delete Post
               </Button>
               <a href={`/posts/update-post/${postObj.firebaseKey}`}>
-                <Button variant="info"> Edit Post </Button>
+                <Button variant="dark"> Edit Post </Button>
               </a>
             </>
           )}
