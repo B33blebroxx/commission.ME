@@ -19,12 +19,12 @@ export default function ProfileViewCard({ profileObj }) {
   const isCurrentUserProfile = user.uid === profileObj.uid;
   if (isCurrentUserProfile) {
     return (
-      <div>
+      <div id="profile-view">
         <div className="mt-5 d-flex flex-wrap">
           <div className="d-flex flex-column">
             <img src={profileObj.image} alt={profileObj.name} style={{ width: '300px' }} />
           </div>
-          <div className="text-white ms-5 details">
+          <div className="text-black ms-5 details">
             <h1>{profileObj?.name}</h1>
             <h5>
               <ul>Specialty Style: {profileObj.style}</ul>
@@ -38,11 +38,11 @@ export default function ProfileViewCard({ profileObj }) {
             </ul>
             <ul>
               <a href={`mailto:${profileObj.email}`}>
-                <Button variant="info">Contact Me For Commissions</Button>
+                <Button variant="dark">Contact Me For Commissions</Button>
               </a>
             </ul>
             <ul>
-              <Button variant="danger" onClick={deleteProfilePrompt}> Delete Profile </Button> <a href={`/profile/update-profile/${firebaseKey}`}><Button variant="info"> Edit Profile </Button></a>
+              <Button variant="dark" onClick={deleteProfilePrompt}> Delete Profile </Button> <a href={`/profile/update-profile/${firebaseKey}`}><Button variant="dark"> Edit Profile </Button></a>
             </ul>
             <br />
           </div>

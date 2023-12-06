@@ -36,7 +36,7 @@ export default function ViewProfile() {
       <div id="post-container">
         {isCurrentUserProfile && (
         <Link passHref a href={`/posts/new/${firebaseKey}`}>
-          <Button variant="primary">Create Post</Button>
+          <Button variant="dark">Create Post</Button>
         </Link>
         )}
         {posts.map((post) => (

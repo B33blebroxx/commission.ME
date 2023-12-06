@@ -19,16 +19,14 @@ export default function ProfileCard({ profileObj, onUpdate }) {
       <Card id="profile-card">
         <Card.Img id="profile-card-img" variant="top" src={profileObj.image} />
         <Card.Body>
-          <Card.Title>{profileObj.name}</Card.Title>
-        </Card.Body>
-        <ListGroup className="list-group-flush">
-          <ListGroup.Item>Specialty Style: {profileObj.style}</ListGroup.Item>
-          <ListGroup.Item>Typical Rates: {profileObj.rates}</ListGroup.Item>
-          <ListGroup.Item>Years of Experience: {profileObj.experience}</ListGroup.Item>
-        </ListGroup>
-        <Card.Body>
-          {isCurrentUserProfile && (<Button variant="danger" onClick={deleteProfilePrompt}> Delete Profile </Button>)}
-          <Link href={`/profile/${profileObj.firebaseKey}`} passHref><Button variant="info">View Profile</Button></Link>
+          <Card.Title id="pc-card-title">{profileObj.name}</Card.Title>
+          <ListGroup className="list-group-flush">
+            <ListGroup.Item className="profile-card-list-group">Specialty Style: {profileObj.style}</ListGroup.Item>
+            <ListGroup.Item className="profile-card-list-group">Typical Rates: {profileObj.rates}</ListGroup.Item>
+            <ListGroup.Item className="profile-card-list-group">Years of Experience: {profileObj.experience}</ListGroup.Item>
+          </ListGroup>
+          {isCurrentUserProfile && (<Button variant="dark" onClick={deleteProfilePrompt}> Delete Profile </Button>)}
+          <Link href={`/profile/${profileObj.firebaseKey}`} passHref><Button variant="dark">View Profile</Button></Link>
         </Card.Body>
       </Card>
     </div>
