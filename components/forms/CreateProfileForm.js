@@ -56,7 +56,6 @@ export default function CreateProfileForm({ obj }) {
       <FloatingLabel controlId="floatingInput3" label="Artist Name" className="mb-3">
         <Form.Control
           type="text"
-          placeholder="Artist's Name"
           name="name"
           value={formInput.name}
           onChange={handleChange}
@@ -64,10 +63,9 @@ export default function CreateProfileForm({ obj }) {
         />
       </FloatingLabel>
       <Form.Group className="mb-3 mt-3">
-        <FloatingLabel controlId="floatingInput1" label="Profile Pic" className="mb-3 f-w f-c">
+        <FloatingLabel controlId="floatingInput1" label="Link to Profile Picture" className="mb-3 f-w f-c">
           <Form.Control
             type="text"
-            placeholder="Profile Pic Link"
             name="image"
             value={formInput.image}
             onChange={handleChange}
@@ -75,7 +73,18 @@ export default function CreateProfileForm({ obj }) {
           />
         </FloatingLabel>
       </Form.Group>
-      <FloatingLabel controlId="floatingSelect" label="Rates">
+      <Form.Group className="mb-3 mt-3">
+        <FloatingLabel controlId="floatingInput1" label="Email Address" className="mb-3 f-w f-c">
+          <Form.Control
+            type="email"
+            name="email"
+            value={formInput.email}
+            onChange={handleChange}
+            required
+          />
+        </FloatingLabel>
+      </Form.Group>
+      <FloatingLabel controlId="floatingSelect" label="Rates" className="mb-3 f-w f-c">
         <Form.Select
           aria-label="Rates"
           name="rates"
@@ -91,7 +100,7 @@ export default function CreateProfileForm({ obj }) {
           <option value="$300+">$300+</option>
         </Form.Select>
       </FloatingLabel>
-      <FloatingLabel controlId="floatingSelect" label="Style">
+      <FloatingLabel controlId="floatingSelect" label="Style" className="mb-3 f-w f-c">
         <Form.Select
           aria-label="Style"
           name="style"
@@ -110,7 +119,7 @@ export default function CreateProfileForm({ obj }) {
           <option value="Abstract">Abstract</option>
         </Form.Select>
       </FloatingLabel>
-      <FloatingLabel controlId="floatingSelect" label="Experience">
+      <FloatingLabel controlId="floatingSelect" label="Experience" className="mb-3 f-w f-c">
         <Form.Select
           aria-label="Experience"
           name="experience"
@@ -126,11 +135,9 @@ export default function CreateProfileForm({ obj }) {
           <option value="10+ Years">10+ Years</option>
         </Form.Select>
       </FloatingLabel>
-      <FloatingLabel controlId="floatingInput3" label="Artist Bio" className="mb-3">
+      <FloatingLabel controlId="floatingInput3" label="Artist Bio" className="mb-3 f-w f-c">
         <Form.Control
           type="text"
-          size="lg"
-          placeholder="Artist Bio"
           name="bio"
           value={formInput.bio}
           onChange={handleChange}

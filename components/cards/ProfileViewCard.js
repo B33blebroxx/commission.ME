@@ -1,17 +1,20 @@
+/* eslint-disable @next/next/no-img-element */
 import PropTypes from 'prop-types';
 import { Button } from 'react-bootstrap';
 import { useRouter } from 'next/router';
 import deleteProfileAndPosts from '../../api/mergedData';
 import { useAuth } from '../../utils/context/authContext';
 
-export default function ProfileViewCard({ profileObj, onUpdate }) {
+export default function ProfileViewCard({ profileObj }) {
+  const router = useRouter();
   const deleteProfilePrompt = () => {
     if (window.confirm('Delete Your Profile?')) {
-      deleteProfileAndPosts(profileObj.firebaseKey).then(() => onUpdate());
+      deleteProfileAndPosts(profileObj.firebaseKey).then(() => {
+        router.push('/profile/profiles');
+      });
     }
   };
   const { user } = useAuth();
-  const router = useRouter();
   const { firebaseKey } = router.query;
   const isCurrentUserProfile = user.uid === profileObj.uid;
   if (isCurrentUserProfile) {
@@ -105,5 +108,4 @@ ProfileViewCard.propTypes = {
     bio: PropTypes.string,
     email: PropTypes.string,
   }).isRequired,
-  onUpdate: PropTypes.func.isRequired,
 };
