@@ -20,7 +20,7 @@ export default function CreateProfileForm({ obj }) {
   const { user } = useAuth();
 
   useEffect(() => {
-    if (obj.firebaseKey) setFormInput(obj);
+    if (obj.firebaseKey) setFormInput(obj);// If theprofile already exists, fill in the form fields with profile data
   }, [obj, user]);
 
   const handleChange = (e) => {

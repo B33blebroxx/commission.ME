@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
@@ -6,6 +7,7 @@ import { useAuth } from '../../utils/context/authContext';
 import { createPost, updatePost } from '../../api/postData';
 import { getProfileDetails } from '../../api/profileData';
 
+// Sets the initial state for the form inputs
 const initialState = {
   title: '',
   postImg: '',
@@ -16,42 +18,42 @@ export default function CreatePostForm({ postObj }) {
   const [formInput, setFormInput] = useState(initialState);
   const [profileDetails, setProfileDetails] = useState({});
   const router = useRouter();
-  const { profileId } = router.query;
+  const { profileId } = router.query;// Stores the profile's fbk as the profileId
   const { user } = useAuth();
 
   const getProfile = () => {
-    getProfileDetails(profileId).then(setProfileDetails);
+    getProfileDetails(profileId).then(setProfileDetails);// Fetches profile details by profileId
   };
-  console.warn(profileDetails);
+
   useEffect(() => {
-    if (postObj.firebaseKey) setFormInput(postObj);
+    if (postObj.firebaseKey) setFormInput(postObj);// If the specified post already exists, fill in the form fields with post data
     getProfile();
-  }, [postObj, user]);
+  }, [postObj]);
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value } = e.target;// Destructures the object to get name and value
     setFormInput((prevState) => ({
       ...prevState,
       [name]: value,
-    }));
+    }));// Spreads the initial state of the form and updates it with [name]: value
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (postObj.firebaseKey) {
-      updatePost(formInput).then(() => router.push(`/profile/${postObj.profileId}`));
+    if (postObj.firebaseKey) { // Checks if the post has already been created
+      updatePost(formInput).then(() => router.push(`/profile/${postObj.profileId}`)); // If post already exists, update it then route to the profile that created/updated it.
     } else {
       const payload = {
         ...formInput,
         uid: user.uid,
         profileId: profileDetails.firebaseKey,
-      };
+      }; // Creates a payload that spreads the formInput(user input form data) and adds in a the user's uid as a uid, and the profile's fbk as a profileId
       createPost(payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
         updatePost(patchPayload).then(() => {
           router.push(`/profile/${profileDetails.firebaseKey}`);
-        });
+        });// Creates a post adding the payload info, then patches in fbk for [name], then routes to the profile that created it.
       });
     }
   };
