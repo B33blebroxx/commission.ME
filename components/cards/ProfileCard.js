@@ -1,13 +1,13 @@
 import { Button, Card, ListGroup } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
-import { deleteProfile } from '../../api/profileData';
 import { useAuth } from '../../utils/context/authContext';
+import deleteProfileAndPosts from '../../api/mergedData';
 
 export default function ProfileCard({ profileObj, onUpdate }) {
   const deleteProfilePrompt = () => {
     if (window.confirm('Delete Your Profile?')) {
-      deleteProfile(profileObj.firebaseKey).then(() => onUpdate());
+      deleteProfileAndPosts(profileObj.firebaseKey).then(() => onUpdate());
     }
   };
 
