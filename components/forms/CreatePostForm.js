@@ -40,7 +40,7 @@ export default function CreatePostForm({ postObj }) {
     e.preventDefault();
 
     if (postObj.firebaseKey) {
-      updatePost(formInput).then(() => router.push(`/profile/${profileDetails.firebaseKey}`));
+      updatePost(formInput).then(() => router.push(`/profile/${postObj.profileId}`));
     } else {
       const payload = {
         ...formInput,
@@ -68,7 +68,6 @@ export default function CreatePostForm({ postObj }) {
       >
         <Form.Control
           type="text"
-          placeholder="Enter Post Title"
           name="title"
           value={formInput.title}
           onChange={handleChange}
@@ -82,7 +81,6 @@ export default function CreatePostForm({ postObj }) {
       >
         <Form.Control
           type="url"
-          placeholder="Enter Image URL"
           name="postImg"
           value={formInput.postImg}
           onChange={handleChange}

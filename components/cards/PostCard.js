@@ -18,23 +18,23 @@ export default function PostCard({ postObj, onUpdate }) {
         <Card.Header id="post-header">Title: {postObj.title}</Card.Header>
         <Card.Body>
           <Card.Img id="post-img" src={postObj.postImg} />
-          <ListGroup>
-            {isCurrentUserProfile && (
-              <>
-                <Button variant="danger" onClick={deletePostPrompt}>
-                  Delete Post
-                </Button>
-                <a href={`/posts/update-post/${postObj.firebaseKey}`}>
-                  <Button variant="info"> Edit Post </Button>
-                </a>
-              </>
-            )}
-          </ListGroup>
+        </Card.Body>
+        <Card.Body>
+          {isCurrentUserProfile && (
+            <>
+              <Button variant="danger" onClick={deletePostPrompt}>
+                Delete Post
+              </Button>
+              <a href={`/posts/update-post/${postObj.firebaseKey}`}>
+                <Button variant="info"> Edit Post </Button>
+              </a>
+            </>
+          )}
           {isCurrentUserProfile && postObj.private && (
-            <ListGroup>Private Post</ListGroup>
+          <ListGroup>Private Post</ListGroup>
           )}
           {!isCurrentUserProfile && postObj.private && (
-            <ListGroup>Private Post</ListGroup>
+          <ListGroup>Private Post</ListGroup>
           )}
         </Card.Body>
       </Card>

@@ -30,12 +30,14 @@ export default function ViewProfile() {
   return (
     <>
       <div id="profile-view-container">
-        <ProfileViewCard profileObj={profile} />
+        <ProfileViewCard profileObj={profile} onUpdate={setProfile} />
       </div>
       <div id="post-container">
+        {isCurrentUserProfile && (
         <Link passHref a href={`/posts/new/${firebaseKey}`}>
           <Button variant="primary">Create Post</Button>
         </Link>
+        )}
         {posts.map((post) => (
           <PostCard key={post.firebaseKey} postObj={post} onUpdate={getPosts} />
         ))}
