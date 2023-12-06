@@ -4,12 +4,12 @@ import { getAllPostsByProfile, deletePost } from './postData'; // Import the nec
 import { deleteProfile } from './profileData';
 
 const deleteProfileAndPosts = (firebaseKey) => new Promise((resolve, reject) => {
-  getAllPostsByProfile(firebaseKey)
+  getAllPostsByProfile(firebaseKey)// Gets all posts by profile firebasekey
     .then((posts) => {
-      const deletePostPromises = posts.map((post) => deletePost(post.firebaseKey));
-      return Promise.all(deletePostPromises);
+      const deletePostPromises = posts.map((post) => deletePost(post.firebaseKey));// Maps through the profile's posts and deletes each
+      return Promise.all(deletePostPromises);// Waits for deletePostPromises to finish
     })
-    .then(() => deleteProfile(firebaseKey))
+    .then(() => deleteProfile(firebaseKey))// Deletes the profile
     .then(resolve)
     .catch(reject);
 });
