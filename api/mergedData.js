@@ -1,7 +1,7 @@
 // profileData.js
 
 import { getAllPostsByProfile, deletePost } from './postData'; // Import the necessary functions
-import { deleteProfile } from './profileData';
+import { deleteProfile, getAllProfiles } from './profileData';
 
 const deleteProfileAndPosts = (firebaseKey) => new Promise((resolve, reject) => {
   getAllPostsByProfile(firebaseKey)// Gets all posts by profile firebasekey
@@ -14,4 +14,16 @@ const deleteProfileAndPosts = (firebaseKey) => new Promise((resolve, reject) => 
     .catch(reject);
 });
 
-export default deleteProfileAndPosts;
+const searchProfiles = (searchValue, firebaseKey) => new Promise((resolve, reject) => {
+  getAllProfiles(firebaseKey).then((profileArray) => {
+    const searchResults = profileArray.filter((profile) => (
+      profile.name.toLowerCase().includes(searchValue)
+      || profile.style.toLowerCase().includes(searchValue)
+      || profile.rates.toLowerCase().includes(searchValue)
+
+    ));
+    resolve(searchResults);
+  }).catch(reject);
+});
+
+export { deleteProfileAndPosts, searchProfiles };
