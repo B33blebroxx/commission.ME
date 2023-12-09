@@ -37,11 +37,6 @@ export default function ProfileViewCard({ profileObj }) {
               {profileObj.bio}
             </ul>
             <ul>
-              <a href={`mailto:${profileObj.email}`}>
-                <Button variant="dark">Contact Me For Commissions</Button>
-              </a>
-            </ul>
-            <ul>
               <Button variant="dark" onClick={deleteProfilePrompt}> Delete Profile </Button> <a href={`/profile/update-profile/${firebaseKey}`}><Button variant="dark"> Edit Profile </Button></a>
             </ul>
             <br />
@@ -78,7 +73,7 @@ export default function ProfileViewCard({ profileObj }) {
           </ul>
           <ul>
             <a href={`mailto:${profileObj.email}`}>
-              <Button variant="dark">Contact Me For Commissions</Button>
+              <Button variant="dark">Commission Me</Button>
             </a>
           </ul>
           <br />
