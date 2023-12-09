@@ -25,7 +25,7 @@ export default function ProfileViewCard({ profileObj }) {
             <img src={profileObj.image} alt={profileObj.name} style={{ width: '300px' }} />
           </div>
           <div className="text-black ms-5 details">
-            <h1>{profileObj?.name}</h1>
+            <h1>{profileObj.name}</h1>
             <h5>
               <ul>Specialty Style: {profileObj.style}</ul>
               <ul>Typical Rates: {profileObj.rates}</ul>
@@ -59,13 +59,13 @@ export default function ProfileViewCard({ profileObj }) {
     );
   }
   return (
-    <div>
+    <div id="profile-view">
       <div className="mt-5 d-flex flex-wrap">
         <div className="d-flex flex-column">
           <img src={profileObj.image} alt={profileObj.name} style={{ width: '300px' }} />
         </div>
         <div className="text-white ms-5 details">
-          <h1>{profileObj?.name}</h1>
+          <h1 className="PV-h1">{profileObj.name}</h1>
           <h5>
             <ul>Specialty Style: {profileObj.style}</ul>
             <ul>Typical Rates: {profileObj.rates}</ul>
@@ -78,7 +78,7 @@ export default function ProfileViewCard({ profileObj }) {
           </ul>
           <ul>
             <a href={`mailto:${profileObj.email}`}>
-              <Button variant="info">Contact Me For Commissions</Button>
+              <Button variant="dark">Contact Me For Commissions</Button>
             </a>
           </ul>
           <br />
