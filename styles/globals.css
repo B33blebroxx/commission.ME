@@ -75,6 +75,8 @@ box-shadow: 12px 12px 46px #b2b8c9, -12px -12px 46px #f0f8ff;
 }
 
 #post-card {
+  width: 27rem;
+  height: 27rem;
   background: rgba( 255, 255, 255, 0.15 );
   box-shadow: 0 8px 32px 0 rgba(1, 2, 9, 0.779);
   backdrop-filter: blur( 2.5px );
