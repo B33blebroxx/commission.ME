@@ -12,6 +12,7 @@ const initialState = {
   style: '',
   image: '',
   bio: '',
+  email: '',
 };
 
 export default function CreateProfileForm({ obj }) {
