@@ -31,7 +31,7 @@ export default function CreatePostForm({ postObj }) {
   }, [postObj]);
 
   const handleChange = (e) => {
-    const { name, value } = e.target;// Destructures the object to get name and value
+    const { name, value } = e.target;// Destructures the object to get name and value of the form input
     setFormInput((prevState) => ({
       ...prevState,
       [name]: value,
