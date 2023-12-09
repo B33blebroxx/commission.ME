@@ -25,6 +25,11 @@ body {
   background-size: contain;
 }
 
+#profiles-container {
+  display: flex;
+  justify-content: center;
+}
+
 #profile-card-div {
   display: flex;
   justify-content: space-between;
@@ -34,15 +39,28 @@ body {
   max-width: fit-content;
 }
 
+#profile-view-container {
+  text-align: center;
+}
+
+#profile-view {
+  text-align: center;
+}
+
+#profile-view-img {
+  max-width: 20rem;
+  max-height: 25rem;
+}
+
 #profile-card-img {
   height: 30rem;
 }
 
 .profile-card-list-group {
-  background: rgba( 255, 255, 255, 0.15 );
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-  backdrop-filter: blur( 3.5px );
-  -webkit-backdrop-filter: blur( 3.5px );
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(3.5px);
+  -webkit-backdrop-filter: blur(3.5px);
   border-radius: 10px;
   border: 1px solid rgb(7, 7, 7);
   width: auto;
@@ -55,12 +73,12 @@ body {
 
 #profile-card {
   width: 22rem;
-  background: rgba( 255, 255, 255, 0.15 );
+  background: rgba(255, 255, 255, 0.15);
   box-shadow: 0 8px 32px 0 rgba(1, 2, 9, 0.779);
-  backdrop-filter: blur( 2.5px );
-  -webkit-backdrop-filter: blur( 2.5px );
+  backdrop-filter: blur(2.5px);
+  -webkit-backdrop-filter: blur(2.5px);
   border-radius: 10px;
-  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 #post-container {
@@ -71,14 +89,14 @@ body {
 }
 
 #post-card {
-  width: 27rem;
-  height: 27rem;
-  background: rgba( 255, 255, 255, 0.15 );
+  width: 28rem;
+  height: 28rem;
+  background: rgba(255, 255, 255, 0.15);
   box-shadow: 0 8px 32px 0 rgba(1, 2, 9, 0.779);
-  backdrop-filter: blur( 2.5px );
-  -webkit-backdrop-filter: blur( 2.5px );
+  backdrop-filter: blur(2.5px);
+  -webkit-backdrop-filter: blur(2.5px);
   border-radius: 10px;
-  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 #post-img {
@@ -88,6 +106,13 @@ body {
 
 #profile-pg-header {
   font-size: 70px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.button {
+  margin-top: 10px;
+  margin-right: 4px;
 }
 
 ul {
