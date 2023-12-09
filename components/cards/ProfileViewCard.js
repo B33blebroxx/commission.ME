@@ -2,8 +2,8 @@
 import PropTypes from 'prop-types';
 import { Button } from 'react-bootstrap';
 import { useRouter } from 'next/router';
-import deleteProfileAndPosts from '../../api/mergedData';
 import { useAuth } from '../../utils/context/authContext';
+import { deleteProfileAndPosts } from '../../api/mergedData';
 
 export default function ProfileViewCard({ profileObj }) {
   const router = useRouter();
