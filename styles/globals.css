@@ -69,6 +69,7 @@ body {
 #pc-card-title {
   font-size: 28px;
   font-weight: bold;
+  text-align: center;
 }
 
 #profile-card {
@@ -97,11 +98,17 @@ body {
   -webkit-backdrop-filter: blur(2.5px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
+  margin-bottom: 2rem;
 }
 
 #post-img {
   max-width: stretch;
   max-height: 18rem;
+}
+
+#post-header {
+  font-size: 22px;
+  text-align: center;
 }
 
 #profile-pg-header {
@@ -133,4 +140,8 @@ ul {
 #create-btn {
   text-align: center;
   margin-bottom: 25px;
+}
+
+#post-footer {
+  text-align: center;
 }

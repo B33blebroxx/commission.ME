@@ -19,7 +19,7 @@ export default function PostCard({ postObj, onUpdate }) {
         <Card.Body>
           <Card.Img id="post-img" src={postObj.postImg} />
         </Card.Body>
-        <Card.Footer>
+        <Card.Footer id="post-footer">
           {isCurrentUserProfile && (
             <>
               <Button className="button" variant="dark" onClick={deletePostPrompt}>
