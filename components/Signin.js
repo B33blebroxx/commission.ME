@@ -15,7 +15,7 @@ function Signin() {
     >
       <h1>Welcome to commission.ME!</h1>
       <p>Click the button below to login!</p>
-      <Button type="button" size="lg" className="copy-btn" onClick={signIn}>
+      <Button type="button" size="lg" variant="dark" className="copy-btn" onClick={signIn}>
         Sign In
       </Button>
     </div>
