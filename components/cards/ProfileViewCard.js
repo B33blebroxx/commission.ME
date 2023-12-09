@@ -37,7 +37,7 @@ export default function ProfileViewCard({ profileObj }) {
               {profileObj.bio}
             </ul>
             <ul>
-              <Button variant="dark" onClick={deleteProfilePrompt}> Delete Profile </Button> <a href={`/profile/update-profile/${firebaseKey}`}><Button variant="dark"> Edit Profile </Button></a>
+              <Button className="button" variant="dark" onClick={deleteProfilePrompt}> Delete Profile </Button><a href={`/profile/update-profile/${firebaseKey}`}><Button className="button" variant="dark"> Edit Profile </Button></a>
             </ul>
             <br />
           </div>
@@ -57,7 +57,7 @@ export default function ProfileViewCard({ profileObj }) {
     <div id="profile-view">
       <div className="mt-5 d-flex flex-wrap">
         <div className="d-flex flex-column">
-          <img src={profileObj.image} alt={profileObj.name} style={{ width: '300px' }} />
+          <img id="profile-view-img" src={profileObj.image} alt={profileObj.name} />
         </div>
         <div className="text-white ms-5 details">
           <h1 className="PV-h1">{profileObj.name}</h1>
