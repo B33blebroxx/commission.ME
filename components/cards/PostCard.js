@@ -19,7 +19,7 @@ export default function PostCard({ postObj, onUpdate }) {
         <Card.Body>
           <Card.Img id="post-img" src={postObj.postImg} />
         </Card.Body>
-        <Card.Body>
+        <Card.Footer>
           {isCurrentUserProfile && (
             <>
               <Button variant="dark" onClick={deletePostPrompt}>
@@ -36,7 +36,7 @@ export default function PostCard({ postObj, onUpdate }) {
           {!isCurrentUserProfile && postObj.private && (
           <ListGroup>Private Post</ListGroup>
           )}
-        </Card.Body>
+        </Card.Footer>
       </Card>
     </div>
   );
