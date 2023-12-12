@@ -19,6 +19,21 @@ a {
   box-sizing: border-box;
 }
 
+.button {
+  margin-top: 10px;
+  margin-right: 4px;
+}
+
+ul {
+  color: black;
+  font-weight: bold;
+  font-size: 23px;
+}
+
+.PV-h1 {
+  color: black;
+}
+
 body {
   background-image: url('../images/abstract-background.jpg');
   background-attachment: fixed;
@@ -39,19 +54,6 @@ body {
   max-width: fit-content;
 }
 
-#profile-view-container {
-  text-align: center;
-}
-
-#profile-view {
-  text-align: center;
-}
-
-#profile-view-img {
-  max-width: 20rem;
-  max-height: 25rem;
-}
-
 #profile-card-img {
   height: 30rem;
 }
@@ -66,7 +68,7 @@ body {
   width: auto;
 }
 
-#pc-card-title {
+#pc-title {
   font-size: 28px;
   font-weight: bold;
   text-align: center;
@@ -79,7 +81,20 @@ body {
   backdrop-filter: blur(2.5px);
   -webkit-backdrop-filter: blur(2.5px);
   border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(9, 1, 1, 0.18);
+}
+
+#profile-view-container {
+  text-align: center;
+}
+
+#profile-view {
+  text-align: center;
+}
+
+#profile-view-img {
+  max-width: 20rem;
+  max-height: 25rem;
 }
 
 #post-container {
@@ -117,24 +132,12 @@ body {
   margin-top: 20px;
 }
 
-.button {
-  margin-top: 10px;
-  margin-right: 4px;
-}
-
-ul {
-  color: black;
-  font-weight: bold;
-  font-size: 23px;
-}
-
-.PV-h1 {
-  color: black;
-}
-
 #search {
-  width: 14rem;
-  border-color: black;
+width: 14rem;
+ background: rgba( 255, 255, 255, 0.25 );
+box-shadow: 0 8px 32px 0 rgba(2, 2, 7, 0.557);
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
 #create-btn {
@@ -144,4 +147,12 @@ ul {
 
 #post-footer {
   text-align: center;
+}
+
+#nav {
+  background: rgba( 255, 255, 255, 0.25 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 4px );
+  -webkit-backdrop-filter: blur( 4px );
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
