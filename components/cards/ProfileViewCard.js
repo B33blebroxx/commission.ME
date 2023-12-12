@@ -7,6 +7,9 @@ import { deleteProfileAndPosts } from '../../api/mergedData';
 
 export default function ProfileViewCard({ profileObj }) {
   const router = useRouter();
+  const { user } = useAuth();
+  const { firebaseKey } = router.query;
+  const isCurrentUserProfile = user.uid === profileObj.uid;
   const deleteProfilePrompt = () => {
     if (window.confirm('Delete Your Profile?')) {
       deleteProfileAndPosts(profileObj.firebaseKey).then(() => {
@@ -14,9 +17,6 @@ export default function ProfileViewCard({ profileObj }) {
       });
     }
   };
-  const { user } = useAuth();
-  const { firebaseKey } = router.query;
-  const isCurrentUserProfile = user.uid === profileObj.uid;
   if (isCurrentUserProfile) {
     return (
       <div id="profile-view">

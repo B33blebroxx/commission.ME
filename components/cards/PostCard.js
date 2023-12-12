@@ -20,6 +20,7 @@ export default function PostCard({ postObj, onUpdate }) {
           <Card.Img id="post-img" src={postObj.postImg} />
         </Card.Body>
         <Card.Footer id="post-footer">
+          <a href={`/posts/view/${postObj.firebaseKey}`}><Button className="button" variant="dark"> View Post </Button></a>
           {isCurrentUserProfile && (
             <>
               <Button className="button" variant="dark" onClick={deletePostPrompt}>
