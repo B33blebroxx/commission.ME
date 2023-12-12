@@ -19,7 +19,7 @@ export default function ProfileCard({ profileObj, onUpdate }) {
       <Card id="profile-card">
         <Card.Img id="profile-card-img" variant="top" src={profileObj.image} />
         <Card.Body>
-          <Card.Title id="pc-card-title">{profileObj.name}</Card.Title>
+          <Card.Title id="pc-title">{profileObj.name}</Card.Title>
           <ListGroup className="list-group-flush">
             <ListGroup.Item className="profile-card-list-group">Specialty Style: {profileObj.style}</ListGroup.Item>
             <ListGroup.Item className="profile-card-list-group">Typical Rates: {profileObj.rates}</ListGroup.Item>

@@ -8,7 +8,7 @@ import SearchBar from './SearchBar';
 
 export default function NavBar() {
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+    <Navbar id="nav" collapseOnSelect expand="lg">
       <Container>
         <Link passHref href="/">
           <Navbar.Brand>commission.ME</Navbar.Brand>
