@@ -15,21 +15,19 @@ export default function ProfileCard({ profileObj, onUpdate }) {
   const isCurrentUserProfile = user.uid === profileObj.uid;
 
   return (
-    <div id="profile-card-div">
-      <Card id="profile-card">
-        <Card.Img id="profile-card-img" variant="top" src={profileObj.image} />
-        <Card.Body>
-          <Card.Title id="pc-title">{profileObj.name}</Card.Title>
-          <ListGroup className="list-group-flush">
-            <ListGroup.Item className="profile-card-list-group">Specialty Style: {profileObj.style}</ListGroup.Item>
-            <ListGroup.Item className="profile-card-list-group">Typical Rates: {profileObj.rates}</ListGroup.Item>
-            <ListGroup.Item className="profile-card-list-group">Years of Experience: {profileObj.experience}</ListGroup.Item>
-          </ListGroup>
-          {isCurrentUserProfile && (<><Button className="button" variant="dark" onClick={deleteProfilePrompt}> Delete Profile </Button><a href={`/profile/update-profile/${profileObj.firebaseKey}`}><Button className="button" variant="dark"> Edit Profile </Button></a></>)}
-          <Link href={`/profile/${profileObj.firebaseKey}`} passHref><Button className="button" variant="dark">View Profile</Button></Link>
-        </Card.Body>
-      </Card>
-    </div>
+    <Card id="profile-card">
+      <Card.Img id="profile-card-img" variant="top" src={profileObj.image} />
+      <Card.Body>
+        <Card.Title id="pc-title">{profileObj.name}</Card.Title>
+        <ListGroup className="list-group-flush">
+          <ListGroup.Item className="profile-card-list-group">Specialty Style: {profileObj.style}</ListGroup.Item>
+          <ListGroup.Item className="profile-card-list-group">Typical Rates: {profileObj.rates}</ListGroup.Item>
+          <ListGroup.Item className="profile-card-list-group">Years of Experience: {profileObj.experience}</ListGroup.Item>
+        </ListGroup>
+        {isCurrentUserProfile && (<><Button className="button" variant="dark" onClick={deleteProfilePrompt}> Delete Profile </Button><a href={`/profile/update-profile/${profileObj.firebaseKey}`}><Button className="button" variant="dark"> Edit Profile </Button></a></>)}
+        <Link href={`/profile/${profileObj.firebaseKey}`} passHref><Button className="button" variant="dark">View Profile</Button></Link>
+      </Card.Body>
+    </Card>
   );
 }
 

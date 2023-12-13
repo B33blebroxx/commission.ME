@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import PropTypes from 'prop-types';
-import { Button } from 'react-bootstrap';
+import { Button, Card, ListGroup } from 'react-bootstrap';
 import { useRouter } from 'next/router';
 import { useAuth } from '../../utils/context/authContext';
 import { deleteProfileAndPosts } from '../../api/mergedData';
@@ -19,75 +19,38 @@ export default function ProfileViewCard({ profileObj }) {
   };
   if (isCurrentUserProfile) {
     return (
-      <div id="profile-view">
-        <div className="mt-5 d-flex flex-wrap">
-          <div className="d-flex flex-column">
-            <img src={profileObj.image} alt={profileObj.name} style={{ width: '300px' }} />
-          </div>
-          <div className="text-black ms-5 details">
-            <h1>{profileObj.name}</h1>
-            <h5>
-              <ul>Specialty Style: {profileObj.style}</ul>
-              <ul>Typical Rates: {profileObj.rates}</ul>
-              <ul>Years of Experience {profileObj.experience}</ul>
-            </h5>
-            <ul>
-              About Me:
-              <br />
-              {profileObj.bio}
-            </ul>
-            <ul>
-              <Button className="button" variant="dark" onClick={deleteProfilePrompt}> Delete Profile </Button><a href={`/profile/update-profile/${firebaseKey}`}><Button className="button" variant="dark"> Edit Profile </Button></a>
-            </ul>
-            <br />
-          </div>
-        </div>
-        <hr
-          style={{
-            backgroundColor: 'black',
-            color: 'black',
-            borderColor: 'black',
-            height: '2px',
-          }}
-        />
-      </div>
+      <Card id="profile-view">
+        <Card.Header className="PV-h1">{profileObj.name}</Card.Header>
+        <Card.Body>
+          <Card.Img id="profile-view-img" src={profileObj.image} alt={profileObj.name} />
+          <ListGroup id="pv-listgroup">Specialty Style: {profileObj.style}</ListGroup>
+          <ListGroup id="pv-listgroup">Typical Rates: {profileObj.rates}</ListGroup>
+          <ListGroup id="pv-listgroup">Years of Experience: {profileObj.experience}</ListGroup>
+          <div id="bio">About Me: <br /> {profileObj.bio}</div>
+        </Card.Body>
+        <Card.Footer id="pv-footer">
+          <Button className="button" variant="dark" onClick={deleteProfilePrompt}> Delete Profile </Button><a href={`/profile/update-profile/${firebaseKey}`}><Button className="button" variant="dark"> Edit Profile </Button></a>
+        </Card.Footer>
+      </Card>
+
     );
   }
   return (
-    <div id="profile-view">
-      <div className="mt-5 d-flex flex-wrap">
-        <div className="d-flex flex-column">
-          <img id="profile-view-img" src={profileObj.image} alt={profileObj.name} />
-        </div>
-        <div className="text-white ms-5 details">
-          <h1 className="PV-h1">{profileObj.name}</h1>
-          <h5>
-            <ul>Specialty Style: {profileObj.style}</ul>
-            <ul>Typical Rates: {profileObj.rates}</ul>
-            <ul>Years of Experience {profileObj.experience}</ul>
-          </h5>
-          <ul>
-            About Me:
-            <br />
-            {profileObj.bio}
-          </ul>
-          <ul>
-            <a href={`mailto:${profileObj.email}`}>
-              <Button variant="dark">Commission Me</Button>
-            </a>
-          </ul>
-          <br />
-        </div>
-      </div>
-      <hr
-        style={{
-          backgroundColor: 'black',
-          color: 'black',
-          borderColor: 'black',
-          height: '2px',
-        }}
-      />
-    </div>
+    <Card id="profile-view">
+      <Card.Header className="PV-h1">{profileObj.name}</Card.Header>
+      <Card.Body>
+        <Card.Img id="profile-view-img" src={profileObj.image} alt={profileObj.name} />
+        <ListGroup id="pv-listgroup">Specialty Style: {profileObj.style}</ListGroup>
+        <ListGroup id="pv-listgroup">Typical Rates: {profileObj.rates}</ListGroup>
+        <ListGroup id="pv-listgroup">Years of Experience: {profileObj.experience}</ListGroup>
+        <div id="bio">About Me: <br /> {profileObj.bio}</div>
+      </Card.Body>
+      <Card.Footer id="pv-footer">
+        <a href={`mailto:${profileObj.email}`}>
+          <Button variant="dark">Commission Me</Button>
+        </a>
+      </Card.Footer>
+    </Card>
   );
 }
 

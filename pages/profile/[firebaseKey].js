@@ -34,6 +34,14 @@ export default function ViewProfile() {
       <div id="profile-view-container">
         <ProfileViewCard profileObj={profile} onUpdate={setProfile} />
       </div>
+      <hr
+        style={{
+          backgroundColor: 'black',
+          color: 'black',
+          borderColor: 'black',
+          height: '2px',
+        }}
+      />
       <div id="create-btn">{isCurrentUserProfile && (
         <Link passHref a href={`/posts/new/${firebaseKey}`}>
           <Button variant="dark">Create Post</Button>

@@ -32,6 +32,7 @@ ul {
 
 .PV-h1 {
   color: black;
+  font-size: 46px;
 }
 
 body {
@@ -42,7 +43,17 @@ body {
 
 #profiles-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
+}
+
+#profile-card {
+  width: 22rem;
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(5, 6, 22, 0.625);
+  backdrop-filter: blur(1.5px);
+  -webkit-backdrop-filter: blur(1.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(9, 1, 1, 0.18);
 }
 
 #profile-card-div {
@@ -50,7 +61,7 @@ body {
   justify-content: space-between;
   flex-wrap: wrap;
   flex-flow: row;
-  padding: 2rem;
+  padding: 1.5rem;
   max-width: fit-content;
 }
 
@@ -60,9 +71,8 @@ body {
 
 .profile-card-list-group {
   background: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(3.5px);
-  -webkit-backdrop-filter: blur(3.5px);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
   border-radius: 10px;
   border: 1px solid rgb(7, 7, 7);
   width: auto;
@@ -74,27 +84,42 @@ body {
   text-align: center;
 }
 
-#profile-card {
-  width: 22rem;
-  background: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 8px 32px 0 rgba(1, 2, 9, 0.779);
-  backdrop-filter: blur(2.5px);
-  -webkit-backdrop-filter: blur(2.5px);
-  border-radius: 10px;
-  border: 1px solid rgba(9, 1, 1, 0.18);
-}
-
 #profile-view-container {
   text-align: center;
 }
 
 #profile-view {
   text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(5, 6, 22, 0.73);
+  backdrop-filter: blur(1.5px);
+  -webkit-backdrop-filter: blur(1.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(9, 1, 1, 0.18);
 }
 
 #profile-view-img {
   max-width: 20rem;
   max-height: 25rem;
+  float: left;
+  margin-right: 10px;
+}
+
+#bio {
+  padding-top: 10px;
+  font-size: 26px;
+}
+
+#pv-listgroup {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border-radius: 10px;
+  border: 1px solid rgb(7, 7, 7);
+  width: auto;
+  font-size: 22px;
 }
 
 #post-container {
@@ -108,9 +133,9 @@ body {
   width: 28rem;
   height: 28rem;
   background: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 8px 32px 0 rgba(1, 2, 9, 0.779);
-  backdrop-filter: blur(2.5px);
-  -webkit-backdrop-filter: blur(2.5px);
+  box-shadow: 0 8px 32px 0 rgba(5, 6, 22, 0.73);
+  backdrop-filter: blur(1.5px);
+  -webkit-backdrop-filter: blur(1.5px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   margin-bottom: 2rem;
@@ -132,10 +157,20 @@ body {
   margin-top: 20px;
 }
 
+#post-view-card {
+  margin-top: 3rem;
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(5, 6, 22, 0.625);
+  backdrop-filter: blur(2.5px);
+  -webkit-backdrop-filter: blur(2.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
 #search {
 width: 14rem;
  background: rgba( 255, 255, 255, 0.25 );
-box-shadow: 0 8px 32px 0 rgba(2, 2, 7, 0.557);
+ box-shadow: 0 8px 32px 0 rgba(5, 6, 22, 0.625);
 border-radius: 10px;
 border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
@@ -151,8 +186,8 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
 
 #nav {
   background: rgba( 255, 255, 255, 0.25 );
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-  backdrop-filter: blur( 4px );
-  -webkit-backdrop-filter: blur( 4px );
+  box-shadow: 0 8px 32px 0 rgba(5, 6, 22, 0.53);
+  backdrop-filter: blur( 1.5px );
+  -webkit-backdrop-filter: blur( 1.5px );
   border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
