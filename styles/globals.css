@@ -33,6 +33,7 @@ ul {
 .PV-h1 {
   color: black;
   font-size: 46px;
+  border-bottom-color: black;
 }
 
 body {
@@ -89,6 +90,9 @@ body {
   text-align: center;
 }
 
+#pv-footer {
+  border-top-color: black;
+}
 #profile-view {
   text-align: center;
   margin-top: 2rem;
@@ -152,6 +156,7 @@ body {
 #post-header {
   font-size: 22px;
   text-align: center;
+  border-bottom-color: black;
 }
 
 #profile-pg-header {
@@ -184,6 +189,7 @@ border: 1px solid black;}
 
 #post-footer {
   text-align: center;
+  border-top-color: black;
 }
 
 #nav {
