@@ -27,9 +27,7 @@ export default function ViewPostCard({ postObj }) {
           Title: {postObj.title}
         </Card.Header>
         <Card.Body>
-          <Card.Img id="post-view-image">
-            {postObj.postImg}
-          </Card.Img>
+          <Card.Img id="post-view-image" src={`${postObj.postImg}`} />
         </Card.Body>
       </Card>
     </div>
