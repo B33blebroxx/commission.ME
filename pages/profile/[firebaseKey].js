@@ -39,7 +39,7 @@ export default function ViewProfile() {
           backgroundColor: 'black',
           color: 'black',
           borderColor: 'black',
-          height: '2px',
+          height: '1px',
         }}
       />
       <div id="create-btn">{isCurrentUserProfile && (

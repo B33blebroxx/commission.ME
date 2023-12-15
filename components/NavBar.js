@@ -4,14 +4,16 @@ import Link from 'next/link';
 import {
   Navbar, Container, Nav,
 } from 'react-bootstrap';
+import Image from 'next/image';
 import SearchBar from './SearchBar';
+import cmLogoMini from '../images/commissionMe-logo.png';
 
 export default function NavBar() {
   return (
     <Navbar id="nav" collapseOnSelect expand="lg">
       <Container>
         <Link passHref href="/">
-          <Navbar.Brand>commission.ME</Navbar.Brand>
+          <Navbar.Brand><Image id="nav-logo" src={cmLogoMini} width={70} height={70} alt="Palette Logo" /></Navbar.Brand>
         </Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">

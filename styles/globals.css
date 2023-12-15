@@ -175,6 +175,14 @@ body {
   border: 1px solid rgba(4, 1, 1, 0.836);
 }
 
+#post-view-header {
+  border-bottom-color: black;
+}
+
+#post-view-image {
+  border: 1px solid black;
+}
+
 #search {
 width: 14rem;
  background: rgba( 255, 255, 255, 0.25 );
@@ -198,4 +206,10 @@ border: 1px solid black;}
   backdrop-filter: blur( 1.5px );
   -webkit-backdrop-filter: blur( 1.5px );
   border: 1px solid rgba(11, 2, 2, 0.807);
+  max-height: 4.5rem;
+  
+}
+
+#nav-logo {
+  float:left;
 }
