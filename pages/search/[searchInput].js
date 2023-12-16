@@ -22,7 +22,7 @@ export default function Search() {
 
   return (
     <>
-      <div className="d-flex flex-wrap">
+      <div id="search-results" className="d-flex flex-wrap">
         {filteredProfiles.map((profile) => <ProfileCard key={profile.firebaseKey} profileObj={profile} onUpdate={searchProfiles} />)}
       </div>
     </>

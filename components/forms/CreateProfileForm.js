@@ -118,6 +118,7 @@ export default function CreateProfileForm({ obj }) {
           <option value="Surrealism">Surrealism</option>
           <option value="Pop">Pop</option>
           <option value="Abstract">Abstract</option>
+          <option value="Cartoon">Cartoon</option>
         </Form.Select>
       </FloatingLabel>
       <FloatingLabel controlId="floatingSelect" label="Experience" className="mb-3 f-w f-c">
