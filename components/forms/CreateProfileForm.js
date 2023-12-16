@@ -21,7 +21,7 @@ export default function CreateProfileForm({ obj }) {
   const { user } = useAuth();
 
   useEffect(() => {
-    if (obj.firebaseKey) setFormInput(obj);// If theprofile already exists, fill in the form fields with profile data
+    if (obj.firebaseKey) setFormInput(obj);
   }, [obj, user]);
 
   const handleChange = (e) => {
@@ -98,7 +98,8 @@ export default function CreateProfileForm({ obj }) {
           <option value="$50-100">$50-100</option>
           <option value="$100-200">$100-200</option>
           <option value="$200-300">$200-300</option>
-          <option value="$300+">$300+</option>
+          <option value="$300-400">$300-400</option>
+          <option value="$400+">$400+</option>
         </Form.Select>
       </FloatingLabel>
       <FloatingLabel controlId="floatingSelect" label="Style" className="mb-3 f-w f-c">
@@ -119,6 +120,7 @@ export default function CreateProfileForm({ obj }) {
           <option value="Pop">Pop</option>
           <option value="Abstract">Abstract</option>
           <option value="Cartoon">Cartoon</option>
+          <option value="Logos">Logos</option>
         </Form.Select>
       </FloatingLabel>
       <FloatingLabel controlId="floatingSelect" label="Experience" className="mb-3 f-w f-c">

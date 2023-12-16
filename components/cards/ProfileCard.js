@@ -24,9 +24,11 @@ export default function ProfileCard({ profileObj, onUpdate }) {
           <ListGroup.Item className="profile-card-list-group">Typical Rates: {profileObj.rates}</ListGroup.Item>
           <ListGroup.Item className="profile-card-list-group">Years of Experience: {profileObj.experience}</ListGroup.Item>
         </ListGroup>
+      </Card.Body>
+      <Card.Footer id="profile-card-footer">
         {isCurrentUserProfile && (<><Button className="button" variant="dark" onClick={deleteProfilePrompt}> Delete Profile </Button><a href={`/profile/update-profile/${profileObj.firebaseKey}`}><Button className="button" variant="dark"> Edit Profile </Button></a></>)}
         <Link href={`/profile/${profileObj.firebaseKey}`} passHref><Button className="button" variant="dark">View Profile</Button></Link>
-      </Card.Body>
+      </Card.Footer>
     </Card>
   );
 }
