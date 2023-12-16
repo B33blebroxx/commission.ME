@@ -26,7 +26,7 @@ export default function ProfileCard({ profileObj, onUpdate }) {
         </ListGroup>
       </Card.Body>
       <Card.Footer id="profile-card-footer">
-        {isCurrentUserProfile && (<><Button className="button" variant="dark" onClick={deleteProfilePrompt}> Delete Profile </Button><a href={`/profile/update-profile/${profileObj.firebaseKey}`}><Button className="button" variant="dark"> Edit Profile </Button></a></>)}
+        {isCurrentUserProfile && (<><Button className="button" variant="dark" onClick={deleteProfilePrompt}> Delete Profile </Button><Link passHref href={`/profile/update-profile/${profileObj.firebaseKey}`}><Button className="button" variant="dark"> Edit Profile </Button></Link></>)}
         <Link href={`/profile/${profileObj.firebaseKey}`} passHref><Button className="button" variant="dark">View Profile</Button></Link>
       </Card.Footer>
     </Card>
