@@ -43,7 +43,7 @@ export default function ViewProfile() {
         }}
       />
       <div id="create-btn">{isCurrentUserProfile && (
-        <Link passHref a href={`/posts/new/${firebaseKey}`}>
+        <Link passHref href={`/posts/new/${firebaseKey}`}>
           <Button variant="dark">Create Post</Button>
         </Link>
       )}

@@ -19,7 +19,7 @@ function Home() {
     >
       <h1>Hello {user.displayName}! </h1>
       <Image src={logo} />
-      <p>Click <a href="/profile/new"><u>here</u></a> if this is your first visit, or if you have not created a profile!</p>
+      <p>Click <Link href="/profile/new"><u>here</u></Link> if this is your first visit, or if you have not created a profile!</p>
       <p>Otherwise click a link above or <Button variant="dark" onClick={signOut}>Sign Out</Button> !</p>
     </div>
   );

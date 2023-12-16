@@ -1,5 +1,6 @@
 import { Button, Card, ListGroup } from 'react-bootstrap';
 import PropTypes from 'prop-types';
+import Link from 'next/link';
 import { useAuth } from '../../utils/context/authContext';
 import { deletePost } from '../../api/postData';
 
@@ -20,15 +21,15 @@ export default function PostCard({ postObj, onUpdate }) {
           <Card.Img id="post-img" src={postObj.postImg} />
         </Card.Body>
         <Card.Footer id="post-footer">
-          <a href={`/posts/view/${postObj.firebaseKey}`}><Button className="button" variant="dark"> View Post </Button></a>
+          <Link passHref href={`/posts/view/${postObj.firebaseKey}`}><Button className="button" variant="dark"> View Post </Button></Link>
           {isCurrentUserProfile && (
             <>
               <Button className="button" variant="dark" onClick={deletePostPrompt}>
                 Delete Post
               </Button>
-              <a href={`/posts/update-post/${postObj.firebaseKey}`}>
+              <Link passHref href={`/posts/update-post/${postObj.firebaseKey}`}>
                 <Button className="button" variant="dark"> Edit Post </Button>
-              </a>
+              </Link>
             </>
           )}
           {isCurrentUserProfile && postObj.private && (

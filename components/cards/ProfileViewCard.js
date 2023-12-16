@@ -2,6 +2,7 @@
 import PropTypes from 'prop-types';
 import { Button, Card, ListGroup } from 'react-bootstrap';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 import { useAuth } from '../../utils/context/authContext';
 import { deleteProfileAndPosts } from '../../api/mergedData';
 
@@ -29,7 +30,7 @@ export default function ProfileViewCard({ profileObj }) {
           <div id="bio">About Me: <br /> {profileObj.bio}</div>
         </Card.Body>
         <Card.Footer id="pv-footer">
-          <Button className="button" variant="dark" onClick={deleteProfilePrompt}> Delete Profile </Button><a href={`/profile/update-profile/${firebaseKey}`}><Button className="button" variant="dark"> Edit Profile </Button></a>
+          <Button className="button" variant="dark" onClick={deleteProfilePrompt}> Delete Profile </Button><Link passHref href={`/profile/update-profile/${firebaseKey}`}><Button className="button" variant="dark"> Edit Profile </Button></Link>
         </Card.Footer>
       </Card>
 
@@ -46,9 +47,9 @@ export default function ProfileViewCard({ profileObj }) {
         <div id="bio">About Me: <br /> {profileObj.bio}</div>
       </Card.Body>
       <Card.Footer id="pv-footer">
-        <a href={`mailto:${profileObj.email}`}>
+        <Link passHref href={`mailto:${profileObj.email}`}>
           <Button variant="dark">Commission Me</Button>
-        </a>
+        </Link>
       </Card.Footer>
     </Card>
   );
