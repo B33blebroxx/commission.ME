@@ -220,4 +220,7 @@ border: 1px solid black;}
 
 #search-results {
   margin-top: 4rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
