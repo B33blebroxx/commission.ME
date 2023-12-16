@@ -13,13 +13,13 @@ export default function NavBar() {
     <Navbar id="nav" collapseOnSelect expand="lg">
       <Container>
         <Link passHref href="/">
-          <Navbar.Brand><Image id="nav-logo" src={cmLogoMini} width={70} height={70} alt="Palette Logo" /></Navbar.Brand>
+          <Navbar.Brand><Image id="nav-logo" src={cmLogoMini} width={68} height={68} alt="Palette Logo" /></Navbar.Brand>
         </Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto">
+          <Nav className="mx-auto">
             <Link passHref href="/profile/profiles">
-              <Nav.Link>Artist Profiles</Nav.Link>
+              <Nav.Link>Artists</Nav.Link>
             </Link>
           </Nav>
           <SearchBar />
