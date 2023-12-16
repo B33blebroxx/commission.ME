@@ -1,61 +1,58 @@
-# React/Next.js Template
-
-[See Live Demo of this Template](https://drt-next-js-template.netlify.app/)
-
-## Topics
-- [Get Started](#get-started)
-- [Starting the Project](#starting-the-project)
-- [Deploying on Netlify](#deploying-on-netlify)
-___
-## Getting Started
-### Use Template
-#### 1. To get started, click the GREEN "Use this Template" button at the top of the repo
-<img width="915" alt="Screen Shot 2022-07-06 at 12 54 01 PM" src="https://user-images.githubusercontent.com/29741570/177612998-4aac9237-5a1e-4f13-8ae0-468587521564.png">
-
-#### 2. Make sure YOUR github account is selected in the dropdown and name your project
-<img width="763" alt="Screen Shot 2022-07-06 at 12 54 48 PM" src="https://user-images.githubusercontent.com/29741570/177613126-dd38f678-7553-4f27-8a4a-75680f14d71e.png">
-
-#### 3. Clone your new repo to your local machine
-#### 4. Go to the **NEXT** section
-
-## Starting the Project
-1. Create a Firebase project and set up authentication. Use [these videos](https://vimeo.com/showcase/codetracker-firebase) as a refresher if needed.
-1. Create a `.env` file at the root of the project
-1. Copy/Paste the contents of the `.env.sample` file to your newly created `.env` file.
-1. Copy over all of your Firebase values into the `.env` file.
-1. Open the `package.json` file and change the `name` property to the name of your application, and `author` to  your name.
-1. From your command line, be in the root directory and run `npm install` OR `npm i` for short.
-1. Next, run `npm run prepare`. This command sets up husky to track eslint errors on commit that will make your deploy fail on Netlify.
-1. To start your application, run `npm run dev`. THIS IS THE COMMAND YOU WILL USE TO RUN YOUR DEVELOPMENT SERVER FROM NOW ON.
-1. Open [http://localhost:3000](http://localhost:3000) with your browser.
-
-### If you see this, you are set to go!
-<img width="450" alt="Screen Shot 2022-07-06 at 1 07 27 PM" src="https://user-images.githubusercontent.com/29741570/177615077-9b6a75bc-0260-4d29-bb88-bd95a3140687.png">
+# commission.ME
+<!-- update the netlify badge above with your own badge that you can find at netlify under settings/general#status-badges -->
+AI generated art is becoming more commonplace everywhere, leaving the human artists whose work the AI imitates to worry about their future professional viability. commission.ME is an app designed to help increase visibility of working artists over AI, promote the work they create, and increase the likelihood of obtaining paid commissions. It does this by allowing the artist to create a profile page with info about the style they specialize in, typical rates, experience, then post examples of their artwork to that profile. Users interested in the artist's work can then simply click a button to open an email to the artist to have work commissioned for them or their business.
 
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Get Started
+function Home() {
+  const { user } = useAuth();
 
-**NOTES:** 
-- If you see the following error, you did not follow all the setup steps correctly and failed to add your Firebase creds. Go back and do that NOW.
+  return (
+    <div
+      className="text-center d-flex flex-column justify-content-center align-content-center"
+      style={{
+        height: '90vh',
+        padding: '30px',
+        maxWidth: '400px',
+        margin: '0 auto',
+      }}
+    >
+      <h1>Hello {user.displayName}! </h1>
+      <Image src={logo} />
+      <p>Click <a href="/profile/new"><u>here</u></a> if this is your first visit, or if you have not created a profile!</p>
+      <p>Otherwise click a link above or <Button variant="dark" onClick={signOut}>Sign Out</Button> !</p>
+    </div>
+  );
+}
 
-<img width="1043" alt="Screen Shot 2022-07-06 at 11 18 45 AM" src="https://user-images.githubusercontent.com/29741570/177612501-c2628f18-4bbd-4de9-aae6-27ffba1172d6.png">
+## About the User <!-- This is a scaled down user persona -->
+- The ideal users for this app are artists, and customers looking for artists to commission work from.
+- The artist user has an interest in broadening the reach of his work, and generating interest in their work from potential customers.
+- The customer user has interest in commissioning a piece, or multiple pieces, of art, either for personal enjoyment or for business purposes.
+- The problem this app solves is that it creates a place for artists to promote their work, increasing the likelihood of commissioning paid work. It also gives potential customers a place to peruse different artists with different styles, allowing them to choose what is right for them or their business.
 
-### Deploying on Netlify
-Netlify will automatically detect your project and prepopulate the settings, but should something go wrong and it does not, here are the commands:
+## Features <!-- List your app features using bullets! Do NOT use a paragraph. No one will read that! -->
+- When a new user visits, they are invited to create a profile.
+- The profile they create contains information about rates, styles, experienc, and the artist themself.
+- The user can create posts on their profile that show off their artwork.
+- Users can create private posts on their profiles that only they can view.
+- The users can edit and delete their posts and profiles at any time.
+- Customer users can click the 'Commission Me' button to email a chosen artist for commission work.
+- Users can search artists by name, rate range, and specialty style to find exactly what they're seeking with minimal work.
 
-- Build Command: `npm run build`
-- Publish directory: `.next`
+## Instructions
+To clone repo, visit https://github.com/B33blebroxx/commission.ME/, click the code dropdown, and copy the SSH link.
+Then open the terminal in Visual Studio Code and type "git clone" and paste the link you copied.
+Once it has cloned, type 'npm start' into the terminal, and once the packages install, type 'npm run dev' and press enter.
+Then open your browser and type 'localhost:3000' into the address bar and hit enter.
 
-#### Additional Steps to Take on Netlify
-- Add Environmental Variables
-    - Any Enviromental variables you are using in your `.env` file should be added to Netlify. 
-        - Go to Site settings > Build & deploy > Environment > Environment variables and the keys and values there.
+## Video Walkthrough of commission.ME
+https://www.loom.com/share/bab5b44a3bda484a98cb986865969f28
 
-- Update Firebase URL Settings
-    - In Firebase under Authentication select sign in methods, scroll to Authorized domains. Add your Netlify URL.
-        
-## Learn More about Next.js
-To learn more about Next.js, take a look at the following resources:
+## Wireframes & ERD
+<img alt="Wireframe" src="/images/MVP-Wireframe-FlowChart.png">
+<img alt="Wireframe-Stretch" src="/images/Stretch-FlowChart-Wireframe.png">
+<img alt="ERD" src="/images/ERD.png">
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Contributors
+- [Brandon Schnurbusch](https://github.com/B33blebroxx)
