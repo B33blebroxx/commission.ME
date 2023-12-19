@@ -61,37 +61,14 @@ export default function CreatePostForm({ postObj }) {
 
   return (
     <Card className="form-card">
-      <Card.Header id="post-header">
-        {postObj.firebaseKey ? 'Update' : 'Create'} Post
-      </Card.Header>
+      <Card.Header id="post-header">{postObj.firebaseKey ? 'Update' : 'Create'} Post</Card.Header>
       <Card.Body>
         <Form onSubmit={handleSubmit}>
-
-          <FloatingLabel
-            controlId="floatingInput1"
-            label="Title of Post"
-            className="mb-3"
-          >
-            <Form.Control
-              type="text"
-              name="title"
-              value={formInput.title}
-              onChange={handleChange}
-              required
-            />
+          <FloatingLabel controlId="floatingInput1" label="Title of Post" className="mb-3">
+            <Form.Control type="text" name="title" value={formInput.title} onChange={handleChange} required />
           </FloatingLabel>
-          <FloatingLabel
-            controlId="floatingInput2"
-            label="Post Image URL"
-            className="mb-3"
-          >
-            <Form.Control
-              type="url"
-              name="postImg"
-              value={formInput.postImg}
-              onChange={handleChange}
-              required
-            />
+          <FloatingLabel controlId="floatingInput2" label="Post Image URL" className="mb-3">
+            <Form.Control type="url" name="postImg" value={formInput.postImg} onChange={handleChange} required />
           </FloatingLabel>
           <Form.Check
             className="mb-3"
@@ -107,9 +84,7 @@ export default function CreatePostForm({ postObj }) {
               }));
             }}
           />
-          <Button type="submit">
-            {postObj.firebaseKey ? 'Update' : 'Create'} Post
-          </Button>
+          <Button type="submit">{postObj.firebaseKey ? 'Update' : 'Create'} Post</Button>
         </Form>
       </Card.Body>
     </Card>
