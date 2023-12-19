@@ -5,7 +5,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Shadows Into Light', cursive;
+  font-family: 'Shadows Into Light', cursive !important; 
   font-weight: bold;
   font-size: 18px;
 }
@@ -37,14 +37,14 @@ ul {
 }
 
 body {
-  background-image: url('../images/abstract-background.jpg');
-  background-attachment: fixed;
-  background-size: contain;
+  background-image: url('../images/abstract-background.jpg')!important;
+  background-attachment: fixed!important;
+  background-size: contain!important;
 }
 
 #profiles-container {
-  display: flex;
-  justify-content: space-between;
+  display: flex!important;
+  justify-content: space-between!important;
   flex-wrap: wrap;
 }
 
