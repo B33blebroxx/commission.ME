@@ -37,7 +37,7 @@ ul {
 }
 
 body {
-  background-image: url('../images/abstract-background.png')!important;
+  background-image: url('../images/AbstractBackground.png')!important;
   background-attachment: fixed!important;
   background-size: contain!important;
 }
@@ -45,7 +45,7 @@ body {
 #profiles-container {
   display: flex!important;
   justify-content: space-between!important;
-  flex-wrap: wrap;
+  flex-wrap: wrap!important;
 }
 
 #profile-card {
@@ -55,8 +55,8 @@ body {
   backdrop-filter: blur(1.5px);
   -webkit-backdrop-filter: blur(1.5px);
   border-radius: 10px;
-  border: 1px solid rgba(9, 1, 1, 0.882);
-  margin-bottom: 3rem;
+  border: 1px solid rgba(9, 1, 1, 0.882)!important;
+  margin-bottom: 3rem!important;
 }
 #profile-card-footer {
   border-top-color: black;
