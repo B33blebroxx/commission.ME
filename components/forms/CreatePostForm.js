@@ -2,7 +2,9 @@
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
-import { Button, FloatingLabel, Form } from 'react-bootstrap';
+import {
+  Button, Card, FloatingLabel, Form,
+} from 'react-bootstrap';
 import { useAuth } from '../../utils/context/authContext';
 import { createPost, updatePost } from '../../api/postData';
 import { getProfileDetails } from '../../api/profileData';
@@ -58,54 +60,59 @@ export default function CreatePostForm({ postObj }) {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <h2 className="text-white mt-5">
+    <Card className="form-card">
+      <Card.Header id="post-header">
         {postObj.firebaseKey ? 'Update' : 'Create'} Post
-      </h2>
-      <FloatingLabel
-        controlId="floatingInput1"
-        label="Title of Post"
-        className="mb-3"
-      >
-        <Form.Control
-          type="text"
-          name="title"
-          value={formInput.title}
-          onChange={handleChange}
-          required
-        />
-      </FloatingLabel>
-      <FloatingLabel
-        controlId="floatingInput2"
-        label="Post Image URL"
-        className="mb-3"
-      >
-        <Form.Control
-          type="url"
-          name="postImg"
-          value={formInput.postImg}
-          onChange={handleChange}
-          required
-        />
-      </FloatingLabel>
-      <Form.Check
-        className="text-white mb-3"
-        type="switch"
-        id="private"
-        name="private"
-        label="Private Post?"
-        checked={formInput.private}
-        onChange={(e) => {
-          setFormInput((prevState) => ({
-            ...prevState,
-            private: e.target.checked,
-          }));
-        }}
-      />
-      <Button type="submit">
-        {postObj.firebaseKey ? 'Update' : 'Create'} Post
-      </Button>
-    </Form>
+      </Card.Header>
+      <Card.Body>
+        <Form onSubmit={handleSubmit}>
+
+          <FloatingLabel
+            controlId="floatingInput1"
+            label="Title of Post"
+            className="mb-3"
+          >
+            <Form.Control
+              type="text"
+              name="title"
+              value={formInput.title}
+              onChange={handleChange}
+              required
+            />
+          </FloatingLabel>
+          <FloatingLabel
+            controlId="floatingInput2"
+            label="Post Image URL"
+            className="mb-3"
+          >
+            <Form.Control
+              type="url"
+              name="postImg"
+              value={formInput.postImg}
+              onChange={handleChange}
+              required
+            />
+          </FloatingLabel>
+          <Form.Check
+            className="mb-3"
+            type="switch"
+            id="private"
+            name="private"
+            label="Private Post?"
+            checked={formInput.private}
+            onChange={(e) => {
+              setFormInput((prevState) => ({
+                ...prevState,
+                private: e.target.checked,
+              }));
+            }}
+          />
+          <Button type="submit">
+            {postObj.firebaseKey ? 'Update' : 'Create'} Post
+          </Button>
+        </Form>
+      </Card.Body>
+    </Card>
   );
 }
 
