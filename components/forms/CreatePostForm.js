@@ -84,7 +84,7 @@ export default function CreatePostForm({ postObj }) {
               }));
             }}
           />
-          <Button type="submit">{postObj.firebaseKey ? 'Update' : 'Create'} Post</Button>
+          <Button variant="dark" type="submit">{postObj.firebaseKey ? 'Update' : 'Create'} Post</Button>
         </Form>
       </Card.Body>
     </Card>
