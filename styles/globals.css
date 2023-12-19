@@ -37,7 +37,7 @@ ul {
 }
 
 body {
-  background-image: url('../images/AbstractBackground.png')!important;
+  background-image: url('../images/abstract.jpg')!important;
   background-attachment: fixed!important;
   background-size: contain!important;
 }
@@ -201,7 +201,7 @@ border: 1px solid black;}
 
 #post-footer {
   text-align: center;
-  border-top-color: black;
+  border-top-color: black!important;
 }
 
 #nav {
@@ -223,4 +223,15 @@ border: 1px solid black;}
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+}
+
+.form-card {
+  margin-top: 4rem;
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(5, 6, 22, 0.625);
+  backdrop-filter: blur(2.5px);
+  -webkit-backdrop-filter: blur(2.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(4, 1, 1, 0.836);
+  color: black;
 }
