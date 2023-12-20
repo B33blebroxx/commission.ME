@@ -39,8 +39,8 @@ ul {
 body {
   background-image: url('../images/abstractbackground.jpg')!important;
   background-attachment: fixed!important;
-  background-size: cover!important;
-}
+  background-size: contain!important;
+} 
 
 #profiles-container {
   display: flex!important;
