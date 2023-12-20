@@ -39,7 +39,7 @@ ul {
 body {
   background-image: url('../images/abstractbackground.jpg')!important;
   background-attachment: fixed!important;
-  background-size: contain!important;
+  background-size: cover!important;
 }
 
 #profiles-container {
